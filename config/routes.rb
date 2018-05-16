@@ -4,6 +4,9 @@ Rails.application.routes.draw do
   get '/help', to: 'static_page#help'
   get '/contact', to: 'static_page#contact'
   get '/signup', to: 'users#new'
+  get '/login', to: 'sessions#new'
+  post '/login', to: 'sessions#create'
+  delete '/logout', to: 'sessions#destroy'
   post '/signup', to: 'users#create'
   resources :users
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
