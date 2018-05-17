@@ -34,6 +34,7 @@ class SessionsController < ApplicationController
     return params_password[:password]
   end
 
+  # Returns remember method if checkbox remember me is checked and will return forget otherwise
   def forget_or_remember(user)
     return params[:session][:remember_me] == '1' ? remember(user) : forget(user)
   end
