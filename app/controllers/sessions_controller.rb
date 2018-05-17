@@ -4,18 +4,19 @@ class SessionsController < ApplicationController
   end
 
   def create
-    user = User.find_by(email: resource_params_email)
-    if user && user.authenticate(resource_params_password)
-      log_in(user)
-      redirect_to user
+    @user = User.find_by(email: resource_params_email)
+    if @user && @user.authenticate(resource_params_password)
+      log_in(@user)
+      forget_or_remember(@user)
+      redirect_to @user
     else
       flash.now[:danger] = "Invalid email/password combination"
       render 'new'
     end
   end
 
-  def destroy 
-    log_out
+  def destroy
+    log_out if logged_in?
     redirect_to root_url
   end
 
@@ -31,5 +32,9 @@ class SessionsController < ApplicationController
     params_password = params.require(:session).permit(:password)
     return false if params_password.nil?
     return params_password[:password]
+  end
+
+  def forget_or_remember(user)
+    return params[:session][:remember_me] == '1' ? remember(user) : forget(user)
   end
 end
