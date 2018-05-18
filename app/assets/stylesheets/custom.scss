@@ -200,3 +200,24 @@ input {
   width: auto;
   margin-left: 0;
 }
+
+/* Gravatar */
+
+.gravatar {
+  margin-right: 20px;
+  float: left;
+}
+
+.gravatar_edit {
+  margin-top: 20px
+}
+
+.users {
+  list-style-type: none;
+  margin: 0;
+  li {
+    overflow: auto;
+    padding: 10px 0;
+    border-bottom: 1px solid $gray-lighter;
+  }
+}

@@ -4,3 +4,28 @@ arief:
   name: arief
   email: ariefluthfi799@gmail.com
   password_digest: <%= User.digest('mymother') %>
+
+example:
+  name: Example User
+  email: example@user.com
+  password_digest: <%= User.digest('mymother') %>
+
+adi:
+  name: adi
+  email: tilistiadi@gmail.com
+  password_digest: <%= User.digest('password') %>
+
+guru:
+  name: Guru Adi
+  email: guru@gmail.com
+  password_digest: <%= User.digest('password') %>
+
+lana:
+  name: Lana Lane
+  email: lane@gmail.com
+  password_digest: <%= User.digest('password') %>
+
+pale:
+  name: Pala Pele 
+  email: okeguys@gmail.com
+  password_digest: <%= User.digest('password') %>

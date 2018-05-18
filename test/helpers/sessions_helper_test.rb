@@ -16,4 +16,9 @@ class SessionsHelperTest < ActionView::TestCase
     @user.update_attribute(:remember_digest, User.digest(User.new_token))
     assert_nil current_user
   end
+
+  test "logged in method value" do
+    assert log_in(@user)
+    assert logged_in?
+  end
 end
