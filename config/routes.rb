@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  # default_url_options host: 'localhost:3000'
+
   root 'static_page#home'
   get '/about', to: 'static_page#about'
   get '/help', to: 'static_page#help'
@@ -9,5 +11,6 @@ Rails.application.routes.draw do
   delete '/logout', to: 'sessions#destroy'
   post '/signup', to: 'users#create'
   resources :users
+  resources :account_activations, only: [:edit]
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end
