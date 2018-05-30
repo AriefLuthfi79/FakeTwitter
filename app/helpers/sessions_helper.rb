@@ -54,6 +54,6 @@ module SessionsHelper
   
   # Store the URL trying to be accessed
   def store_location_url
-    session[:forwarding_location] = request.original_url if request.get?
+    session[:forwarding_location] = request.url if request.get?
   end
 end

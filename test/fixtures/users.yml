@@ -8,7 +8,7 @@ arief:
   activated_at: <%= Time.zone.now.to_s(:db) %>
 
 example:
-  name: Example User
+  name: example
   email: example@user.com
   password_digest: <%= User.digest('mymother') %>
   activated: true
