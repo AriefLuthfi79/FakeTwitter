@@ -81,9 +81,26 @@ class UserTest < ActiveSupport::TestCase
     example = users(:example)
     assert_not arief.following?(example)
     arief.follow(example)
-    assert arief.following?(example)
     assert example.followers.include? arief
     arief.unfollow(example)
     assert_not arief.following? example
+  end
+
+  test "feed should have the right posts" do
+    arief = users(:arief)
+    example = users(:example)
+    lana = users(:lana)
+    # Posts from followed users
+    lana.microposts.each do |post_following|
+      assert arief.feed.include?(post_following)
+    end
+    # Posts from self
+    arief.microposts.each do |post_self|
+      assert arief.feed.include?(post_self)
+    end
+    # Posts from unfollowed user
+    example.microposts.each do |unfollow_post|
+      assert_not arief.feed.include?(unfollow_post)
+    end
   end
 end

@@ -11,9 +11,5 @@ three:
   followed: arief
 
 four:
-  follower: adi
-  followed: arief
-
-five:
   follower: example
   followed: arief
