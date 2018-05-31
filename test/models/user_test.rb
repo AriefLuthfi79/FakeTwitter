@@ -75,4 +75,15 @@ class UserTest < ActiveSupport::TestCase
       @user.destroy
     end
   end
+
+  test "should follow and unfollow user" do
+    arief = users(:arief)
+    example = users(:example)
+    assert_not arief.following?(example)
+    arief.follow(example)
+    assert arief.following?(example)
+    assert example.followers.include? arief
+    arief.unfollow(example)
+    assert_not arief.following? example
+  end
 end

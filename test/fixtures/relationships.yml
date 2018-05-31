@@ -1,0 +1,19 @@
+one:
+  follower: arief
+  followed: lana
+
+two:
+  follower: arief
+  followed: guru
+
+three:
+  follower: lana
+  followed: arief
+
+four:
+  follower: adi
+  followed: arief
+
+five:
+  follower: example
+  followed: arief
